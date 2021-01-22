@@ -20,16 +20,17 @@ public class HelloClassLoader extends ClassLoader{
         try {
             String path = HelloClassLoader.class.getResource("/") + "Hello.xlass";
             File file = new File(path.replace("file:/" , ""));
-            FileInputStream input = new FileInputStream(file);
+            FileInputStream fileInputStream = new FileInputStream(file);
             byte[] buffer = new byte[(int)file.length()];
             byte[] newBuffer = new byte[(int)file.length()];
+            fileInputStream.read(buffer);
             for (int i = 0 ; i<buffer.length ; i++) {
                 byte oldValue = buffer[i];
                 buffer[i] = (byte) (255 - oldValue);
                 newBuffer[i] =  (byte) (255 - oldValue);
             }
             return defineClass(name , newBuffer , 0 ,newBuffer.length);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
