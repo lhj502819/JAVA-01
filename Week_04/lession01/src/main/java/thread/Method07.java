@@ -3,15 +3,13 @@ package thread;
 import java.util.concurrent.Semaphore;
 
 /**
+ * 利用Semaphore来阻塞主线程
  * @author li.hongjian
  * @email lhj502819@163.com
  * @Date 2021/2/4
  */
 public class Method07 {
 
-    /**
-     * 利用Semaphore来阻塞主线程
-     */
     public static final Semaphore semaphore = new Semaphore(1);
 
     public static Integer result = 0;

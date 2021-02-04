@@ -2,6 +2,7 @@ package thread;
 
 
 /**
+ * 主线程轮询阻塞等待
  * @author li.hongjian
  * @email lhj502819@163.com
  * @Date 2021/2/3

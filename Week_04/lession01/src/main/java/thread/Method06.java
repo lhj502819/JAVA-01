@@ -3,6 +3,10 @@ package thread;
 import java.util.concurrent.locks.LockSupport;
 
 /**
+ * 1、通过{@link LockSupport} 阻塞主线程
+ * 2、并通过子线程打断{@link Thread#interrupt()}主线程
+ *
+ * @remark 此方法与 {@link Method05}类似
  * @author li.hongjian
  * @email lhj502819@163.com
  * @Date 2021/2/4

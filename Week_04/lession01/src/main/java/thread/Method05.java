@@ -4,6 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * 通过 {@link Lock} 声明式锁机制
  * @author li.hongjian
  * @email lhj502819@163.com
  * @Date 2021/2/4

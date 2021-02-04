@@ -2,7 +2,7 @@ package thread;
 
 
 /**
- * 通过wait - notify机制
+ * 通过{@link Object#wait()} - {@link Object#notify()} 机制
  * @author li.hongjian
  * @email lhj502819@163.com
  * @Date 2021/2/3

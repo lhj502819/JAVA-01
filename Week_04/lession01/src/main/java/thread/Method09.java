@@ -5,15 +5,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 利用CyclicBarrier来阻塞主线程
  * @author li.hongjian
  * @email lhj502819@163.com
  * @Date 2021/2/4
  */
 public class Method09 {
 
-    /**
-     * 利用CyclicBarrier来阻塞主线程
-     */
     public static Integer result = 0;
 
     public static void main(String[] args) throws Exception{

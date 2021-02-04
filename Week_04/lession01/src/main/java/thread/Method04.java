@@ -3,6 +3,7 @@ package thread;
 import java.util.concurrent.locks.LockSupport;
 
 /**
+ * 通过 {@link LockSupport#park()} {@link LockSupport#unpark(Thread)}
  * @author li.hongjian
  * @email lhj502819@163.com
  * @Date 2021/2/4

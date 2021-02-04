@@ -3,6 +3,7 @@ package thread;
 import java.util.concurrent.*;
 
 /**
+ * 通过{@link Future }接口获取线程执行结果
  * @author li.hongjian
  * @email lhj502819@163.com
  * @Date 2021/2/4
