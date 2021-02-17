@@ -1,0 +1,25 @@
+{
+  "groups": [{
+    "name": "student",
+    "type": "student.starter.StudentProperties",
+    "sourceType": "student.starter.StudentProperties"
+  }],
+  "properties": [{
+    "name": "student.id",
+    "type": "java.lang.Integer",
+    "sourceType": "student.starter.StudentProperties",
+    "defaultValue": 1
+  },
+    {
+      "name": "student.name",
+      "type": "java.lang.String",
+      "sourceType": "student.starter.StudentProperties",
+      "defaultValue": "无名氏"
+    },
+    {
+      "name": "student.enable",
+      "type": "java.lang.Boolean",
+      "defaultValue": true
+    }
+  ]
+}
