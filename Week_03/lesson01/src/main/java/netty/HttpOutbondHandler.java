@@ -91,9 +91,4 @@ public class HttpOutbondHandler implements Interceptor{
         }
     }
 
-
-    @Override
-    public void postProcess(FullHttpResponse fullHttpResponse, ResponseFilter responseFilter) {
-        responseFilter.filter(fullHttpResponse);
-    }
 }
