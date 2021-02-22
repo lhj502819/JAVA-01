@@ -1,5 +1,5 @@
 #依赖注入/装配分为以下几种方式
-##Setter方法注入
+## Setter方法注入
 ## Constructor注入
 ## Field注入
 ## 接口回调注入
