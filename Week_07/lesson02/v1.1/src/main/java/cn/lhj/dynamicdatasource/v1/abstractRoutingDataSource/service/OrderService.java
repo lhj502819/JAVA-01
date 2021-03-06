@@ -1,7 +1,7 @@
 package cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.service;
 
 import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.annotation.DS;
-import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.aspect.OperationEnum;
+import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.constant.OperationEnum;
 import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.constant.DBConstant;
 import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.entity.OrderDO;
 import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.mapper.OrderMapper;

@@ -1,4 +1,4 @@
-package cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.aspect;
+package cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.constant;
 
 /**
  * 数据库操作类型枚举

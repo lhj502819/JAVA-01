@@ -1,7 +1,6 @@
 package cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.annotation;
 
-import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.aspect.OperationEnum;
-import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.constant.DBConstant;
+import cn.lhj.dynamicdatasource.v1.abstractRoutingDataSource.constant.OperationEnum;
 
 import java.lang.annotation.*;
 
