@@ -83,7 +83,7 @@ public class TestInsert {
                     preparedStatement.executeBatch();
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
-                }finally {
+                } finally {
                     try {
                         finalConnection.close();
                         countDownLatch.countDown();
@@ -103,5 +103,90 @@ public class TestInsert {
         System.out.println("耗时：" + (System.currentTimeMillis() - startTime));
         executorService.shutdownNow();
 
+    }
+
+    @Test
+    public void insert2() throws SQLException {
+        CountDownLatch countDownLatch = new CountDownLatch(1000000);
+        long startTime = System.currentTimeMillis();
+        for (int j = 0; j < 1000000; j++) {
+            Connection connection = null;
+            try {
+                connection = hikariDataSource.getConnection();
+                String sql = "insert into t_order (order_no,product_id," +
+                        "product_name,product_image," +
+                        "quantity,origin_price," +
+                        "buy_price,payment_time," +
+                        "delivery_time,receiver_time," +
+                        "user_id) values(?,?,?,?,?,?,?,?,?,?,?)";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, "ON" + j);
+                preparedStatement.setLong(2, 1L);
+                preparedStatement.setString(3, "iphone12 Pro Max");
+                preparedStatement.setString(4, "https://pgdt.gtimg.cn/gdt/0/EAAoQE3AGQAEsAAAJ0sBgPK30BQ2L_KWG.jpg/0?ck=b378ee8716b1e76ea1631e6359bd4d90&md5=b378ee8716b1e76ea1631e6359bd4d90");
+                preparedStatement.setInt(5, 555);
+                preparedStatement.setInt(6, 555);
+                preparedStatement.setInt(7, 555);
+                preparedStatement.setTimestamp(8, timestamp);
+                preparedStatement.setTimestamp(9, timestamp);
+                preparedStatement.setTimestamp(10, timestamp);
+                preparedStatement.setLong(11, 9999L);
+                preparedStatement.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+
+            } finally {
+                connection.close();
+                countDownLatch.countDown();
+            }
+        }
+
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("耗时：" + (System.currentTimeMillis() - startTime));
+    }
+
+    @Test
+    public void insert3() throws SQLException {
+        long startTime = System.currentTimeMillis();
+        Connection connection = null;
+        connection = hikariDataSource.getConnection();
+        String sql = "insert into t_order (order_no,product_id," +
+                "product_name,product_image," +
+                "quantity,origin_price," +
+                "buy_price,payment_time," +
+                "delivery_time,receiver_time," +
+                "user_id) values(?,?,?,?,?,?,?,?,?,?,?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        for (int j = 0; j < 1000000; j++) {
+            try {
+
+                preparedStatement.setString(1, "ON" + j);
+                preparedStatement.setLong(2, 1L);
+                preparedStatement.setString(3, "iphone12 Pro Max");
+                preparedStatement.setString(4, "https://pgdt.gtimg.cn/gdt/0/EAAoQE3AGQAEsAAAJ0sBgPK30BQ2L_KWG.jpg/0?ck=b378ee8716b1e76ea1631e6359bd4d90&md5=b378ee8716b1e76ea1631e6359bd4d90");
+                preparedStatement.setInt(5, 555);
+                preparedStatement.setInt(6, 555);
+                preparedStatement.setInt(7, 555);
+                preparedStatement.setTimestamp(8, timestamp);
+                preparedStatement.setTimestamp(9, timestamp);
+                preparedStatement.setTimestamp(10, timestamp);
+                preparedStatement.setLong(11, 9999L);
+                preparedStatement.addBatch();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+
+            } finally {
+                connection.close();
+            }
+        }
+
+        preparedStatement.executeBatch();
+
+        System.out.println("耗时：" + (System.currentTimeMillis() - startTime));
     }
 }

@@ -14,6 +14,6 @@ spring:
       validationTimeout: 3000
       maxLifetime: 120000
       loginTimeout: 5
-      maximumPoolSize: 50
+      maximumPoolSize: 100
       minimumIdle: 10
       connection-test-query: select 1
