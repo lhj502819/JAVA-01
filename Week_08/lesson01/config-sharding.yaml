@@ -1,0 +1,57 @@
+
+schemaName: sharding_db
+
+dataSourceCommon:
+ username: lhj502819
+ password: 960706Chh!
+ connectionTimeoutMilliseconds: 30000
+ idleTimeoutMilliseconds: 60000
+ maxLifetimeMilliseconds: 1800000
+ maxPoolSize: 5
+ minPoolSize: 1
+ maintenanceIntervalMilliseconds: 30000
+
+dataSources:
+ ds_0:
+   url: jdbc:mysql://lhj502819.mysql.rds.aliyuncs.com:3306/order_db0?serverTimezone=UTC&useSSL=false
+ ds_1:
+   url: jdbc:mysql://lhj502819.mysql.rds.aliyuncs.com:3306/order_db1?serverTimezone=UTC&useSSL=false
+# ds_2:
+#   url: jdbc:mysql://lhj502819.mysql.rds.aliyuncs.com:3306/order_db2?serverTimezone=UTC&useSSL=false
+
+rules:
+- !SHARDING
+ tables:
+   t_order:
+     actualDataNodes: ds_${0..1}.t_order${0..15}
+     tableStrategy:
+       standard:
+         shardingColumn: order_no
+         shardingAlgorithmName: t_order_inline
+     keyGenerateStrategy:
+       column: id
+       keyGeneratorName: snowflake
+ bindingTables:
+   - t_order
+ defaultDatabaseStrategy:
+   standard:
+     shardingColumn: user_id
+     shardingAlgorithmName: database_inline
+ defaultTableStrategy:
+   none:
+ 
+ shardingAlgorithms:
+   database_inline:
+     type: INLINE
+     props:
+       algorithm-expression: ds_${user_id % 2}
+   t_order_inline:
+     type: HASH_MOD
+     props:
+       algorithm-expression: user_$->{Math.abs(id.hashCode())%16}
+       sharding-count: '16'
+ keyGenerators:
+   snowflake:
+     type: SNOWFLAKE
+     props:
+       worker-id: 123
