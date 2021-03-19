@@ -39,12 +39,6 @@
             <groupId>io.kimmking</groupId>
             <artifactId>rpcfx-core</artifactId>
             <version>${project.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-aop</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
