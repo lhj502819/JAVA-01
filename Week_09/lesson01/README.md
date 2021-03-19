@@ -10,4 +10,4 @@
    1. 创建rpcx-netty工程作为netty server供consumer调用
    
 # 可优化点
-作业2的AOP需将切面定义在consumer端，不太合理，可更改为自定义BeanPostProcessor在Bean创建后进行对标注了@Reference的属性生成动态代理
+作业2的AOP需将切面定义在consumer端，不太合理，可更改为自定义BeanPostProcessor在Bean创建后进行对标注了@Reference的属性生成代理类并赋值
