@@ -2,6 +2,7 @@
 1. 以transaction server作为入口分别调用userAAccount RPC server和userBAccount RPC server，
    通过dubbo的group将userA和userB区分开调用
 2. 将userA server和userB server的本地事务作为分布式事务由hmily管理
+3. 初始化sql见init.sql
 
 # 问题
 1. 原本是想将transaction server的事务和userAAccount RPC server、userBAccount RPC server的三个本地事务作为一个分布式事务
